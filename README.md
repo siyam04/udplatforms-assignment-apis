@@ -73,4 +73,12 @@ python fake_data.py
 ``` 
 python manage.py test
 ```
+>> Success
+
+![test-case](https://user-images.githubusercontent.com/23103980/157743875-344eb440-fb0a-4205-88df-f8e3d4369008.png)
+
+>> Failed
+
+![test-case-F](https://user-images.githubusercontent.com/23103980/157744032-f5f27796-1924-49ea-bf7d-8c30bac3b734.png)
+
 
