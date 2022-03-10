@@ -10,8 +10,8 @@ from .views.child_views import ChildViewSet
 parent_child_router = routers.DefaultRouter()
 
 # Parent & child routers
-parent_child_router.register('parents', ParentViewSet)
-parent_child_router.register('children', ChildViewSet)
+parent_child_router.register('parents', ParentViewSet, basename='parents-test')  # basename used for unit testing
+parent_child_router.register('children', ChildViewSet, basename='children-test')
 
 # APIView config
 urlpatterns = []

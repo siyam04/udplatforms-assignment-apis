@@ -69,5 +69,8 @@ python fake_data.py
 ```
 ![faker](https://user-images.githubusercontent.com/23103980/157702177-fe27c2bb-2e22-43bc-85a3-734127f9e05e.png)
 
-
+* Run test cases (Unit Testing)
+``` 
+python manage.py test
+```
 
