@@ -1,7 +1,7 @@
 from rest_framework import status, viewsets
 from rest_framework.response import Response
 
-# App resources
+# App related
 from parent_child.models import Child
 from parent_child.serializers.child_serializers import (
     ChildSerializer,
@@ -18,6 +18,7 @@ class ChildViewSet(viewsets.ModelViewSet):
     queryset = Child.objects.all()
     serializer_class = ChildListSerializer
 
+    # create & update method override using custom serializer
     def create(self, request, *args, **kwargs):
         serializer = ChildSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -32,5 +33,8 @@ class ChildViewSet(viewsets.ModelViewSet):
         serializer.is_valid(raise_exception=True)
         self.perform_update(serializer)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+
 
 

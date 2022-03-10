@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
 
-# importing app models
+# App models
 from .models import *
 
 
 # Override django admin panel default name
-admin.site.site_header = "UDPlatforms Coding Assignment Admin"
+admin.site.site_header = "UDPlatforms Assignment Admin"
 
 # Unregistering default Group class
 admin.site.unregister(Group)

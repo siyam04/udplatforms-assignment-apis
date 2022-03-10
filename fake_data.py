@@ -10,11 +10,11 @@ django.setup()
 from faker import Faker
 fake_data = Faker()
 
-# # importing app models
+# App models
 from parent_child.models import Parent, Child
 
 
-# 1st, creating the priority object with fake data
+# Firstly, creating the priority object with fake data
 def create_parent():
     parent = Parent.objects.get_or_create(
         first_name=fake_data.first_name(),
@@ -24,20 +24,20 @@ def create_parent():
         state=fake_data.state(),
         zip=fake_data.zipcode(),
     )[0]
-    # note: [0] = Usage of get_or_create() method, if priority object already exists then get from first index.
+    # Note: [0] = Usage of get_or_create() method, if priority object already exists then get from first index.
     # if not, then create the priority object.
     parent.save()
     return parent
 
 
-# populating other classes
+# Populating other classes
 def populate(n):
     for entry in range(n):
 
-        # 1st, calling priority method for creating priority object
+        # calling priority method for creating priority object
         parent = create_parent()
 
-        # creating objects
+        # creating other objects
         Child.objects.create(
             first_name=fake_data.first_name(),
             last_name=fake_data.last_name(),
@@ -45,7 +45,7 @@ def populate(n):
         )
 
 
-# calling populate() method
+# Calling populate() method
 if __name__ == '__main__':
     print("** Populating the Database, Please Wait...")
     populate(10)

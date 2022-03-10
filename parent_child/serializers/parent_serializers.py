@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-# importing app model
+# App related
 from parent_child.models import Parent
 
 

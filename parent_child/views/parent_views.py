@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 
-# importing app resources
+# App related
 from parent_child.models import Parent
 from parent_child.serializers.parent_serializers import ParentListSerializer
 

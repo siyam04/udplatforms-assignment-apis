@@ -1,20 +1,21 @@
+# Default
 import os
 from pathlib import Path
 
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# (Default) Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
+# (Default) SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-92nv5ak=z3x3=_yk+j02@6&18rnn4h%#$1*-=tcls(i4v_d1r-'
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# (Default) SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Hosts config
+# (Default) Hosts config
 ALLOWED_HOSTS = []
 
-# Application definition
+# (Default) Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -24,19 +25,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # dependencies
+    'drf_yasg',
     'corsheaders',
     'rest_framework',
-    'rest_framework_swagger',
 
     # custom apps
     'parent_child.apps.ParentChildConfig',
 ]
 
+# (Default) Middleware config
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
 
-    # positional corsheaders config
+    # corsheaders config (positional)
     'corsheaders.middleware.CorsMiddleware',
 
     'django.middleware.common.CommonMiddleware',
@@ -46,13 +48,13 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# Positional corsheaders config
+# Allowing corsheaders
 CORS_ORIGIN_ALLOW_ALL = True
 
-# Root dir config
+# (Default) Root dir config
 ROOT_URLCONF = 'config.urls'
 
-# Templates config
+# (Default) Templates config
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -69,11 +71,10 @@ TEMPLATES = [
     },
 ]
 
-# Web-server gateway interface config
+# (Default) Web-server gateway interface config
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-# Database config
+# (Default) Database config
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -81,7 +82,7 @@ DATABASES = {
     }
 }
 
-# Password validation config
+# (Default) Password validation config
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -97,28 +98,22 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization config
+# (Default) Internationalization config
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'Asia/Dhaka'
 USE_I18N = True
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
+# (Default) Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 
-# Default primary key field type
+# (Default) Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # DRF config
 REST_FRAMEWORK = {
-
-    # swagger (API Documentation)
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-
     # global pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 5
-
 }
 
