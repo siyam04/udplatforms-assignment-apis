@@ -30,13 +30,13 @@ python3 -m venv myenv
 ``` 
 source myenv/bin/activate
 ```
-![](../venv.png)
+![venv](https://user-images.githubusercontent.com/23103980/157701305-be623108-19ae-4882-a657-d3bf35159be2.png)
 
 * Install project requirements
 ``` 
 pip3 install -r requirements.txt
 ```
-![](../requirements.png)
+![requirements](https://user-images.githubusercontent.com/23103980/157701530-64d5e4b2-007e-4372-9638-0fd73ef41276.png)
 
 * Create the database
 ``` 
@@ -45,7 +45,7 @@ python manage.py makemigrations
 ``` 
 python manage.py migrate
 ```
-![](../db-1.png)
+![db-1](https://user-images.githubusercontent.com/23103980/157701755-c27dac76-c883-4ead-bbb3-52ec154c96ba.png)
 
 * Create the superuser (admin) & provide credentials
 ``` 
@@ -57,16 +57,17 @@ python manage.py runserver
 ```
 * If everything worked, http://127.0.0.1:8000 will show the root page
 
-![](../root.png)
+![root](https://user-images.githubusercontent.com/23103980/157701935-919020b4-f748-429a-86cf-3476b8f9c914.png)
 
 * You can now access the administrative area at, http://127.0.0.1:8000/admin
 
-![](../admin-01.png)
+![admin-01](https://user-images.githubusercontent.com/23103980/157702075-0aa4de0e-8efd-40a7-a5fb-0e021850b6cf.png)
 
 * Generate fake dummy data
 ``` 
 python fake_data.py
 ```
-![](../faker.png)
+![faker](https://user-images.githubusercontent.com/23103980/157702177-fe27c2bb-2e22-43bc-85a3-734127f9e05e.png)
+
 
 
