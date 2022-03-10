@@ -48,7 +48,7 @@ def populate(n):
 # calling populate() method
 if __name__ == '__main__':
     print("** Populating the Database, Please Wait...")
-    populate(5)
+    populate(10)
     print('** Populating Complete **')
 
 

@@ -1,5 +1,4 @@
-from rest_framework import status, viewsets
-from rest_framework.response import Response
+from rest_framework import viewsets
 
 # importing app resources
 from parent_child.models import Parent

@@ -11,7 +11,7 @@ from parent_child.urls import parent_child_router
 
 
 # swagger config (API Documentation)
-schema_view = get_swagger_view(title='UDPlatforms Coding Assignment API Documentation')
+# schema_view = get_swagger_view(title='UDPlatforms Coding Assignment API Documentation')
 
 # main routes mapping
 urlpatterns = [
@@ -20,9 +20,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # home
-    # path('', TemplateView.as_view(template_name="home.html")),
     # path('', schema_view),
-    path('', include_docs_urls(title='UDPlatforms Coding Assignment API Documentation')),
+    path('', include_docs_urls(title='UDPlatforms Assignment API Documentation')),
 
     # DRF config
     # path('api-auth/', include('rest_framework.urls')),
