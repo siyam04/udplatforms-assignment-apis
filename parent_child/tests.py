@@ -6,31 +6,37 @@ from rest_framework.test import APITestCase
 from .models import Parent, Child
 
 
+# Dummy data for parent create
+parent_create_data = {
+    "first_name": "Parent",
+    "last_name": "Testing",
+    "street": "5241 Harper Lodge",
+    "city": "Lake Patric",
+    "state": "NY",
+    "zip": "57445"
+}
+
+# Dummy data for parent update
+parent_update_data = {
+    "first_name": "Parent Updated",
+    "last_name": "Lorem",
+    "street": "Lorem",
+    "city": "Lorem",
+    "state": "Lorem",
+    "zip": "Lorem"
+}
+
+
 # Test cases for Parent APIs
 class ParentTestCase(APITestCase):
 
     # Initializing object
     def setUp(self):
-        self.parent = Parent.objects.create(
-            first_name="Parent-001",
-            last_name="Testing",
-            street="5241 Harper Lodge",
-            city="Lake Patric",
-            state="NY",
-            zip="57445"
-        )
+        self.parent = Parent.objects.create(**parent_create_data)
 
     # Create (POST): {host}/api/parents/
     def test_parent_create(self):
-        data = {
-            "first_name": self.parent.first_name,
-            "last_name": self.parent.last_name,
-            "street": self.parent.street,
-            "city": self.parent.city,
-            "state": self.parent.state,
-            "zip": self.parent.zip
-        }
-        response = self.client.post('/api/parents/', data)
+        response = self.client.post('/api/parents/', self.parent.__dict__)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     # List (GET): {host}/api/parents/
@@ -45,15 +51,7 @@ class ParentTestCase(APITestCase):
 
     # Update (PUT): {host}/api/parents/{id}/
     def test_parent_update(self):
-        data = {
-            "first_name": "Edited",
-            "last_name": "Parent",
-            "street": "Edited",
-            "city": "Edited",
-            "state": "Edited",
-            "zip": "Edited",
-        }
-        response = self.client.put(reverse('parents-test-detail', args=(self.parent.id,)), data)
+        response = self.client.put(reverse('parents-test-detail', args=(self.parent.id,)), parent_update_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     # Delete (DELETE): {host}/api/parents/{id}/
@@ -67,29 +65,30 @@ class ChildTestCase(APITestCase):
 
     # Initializing objects
     def setUp(self):
-        self.parent = Parent.objects.create(
-            first_name="Parent-002",
-            last_name="Testing",
-            street="241 Lodge Harper",
-            city="Patric Lake",
-            state="NYC",
-            zip="54456"
-        )
-
+        self.parent = Parent.objects.create(**parent_create_data)
         self.child = Child.objects.create(
-            first_name="Child-001",
+            first_name="Child",
             last_name="Testing",
             parent=self.parent
         )
 
-    # Create (POST): {host}/api/children/
-    def test_child_create(self):
-        data = {
+        # dummy data for child create
+        self.child_create_data = {
             "first_name": self.child.first_name,
             "last_name": self.child.last_name,
             "parent": self.parent.id
         }
-        response = self.client.post('/api/children/', data)
+
+        # dummy data for child update
+        self.child_update_data = {
+            "first_name": "Child Updated",
+            "last_name": "Lorem",
+            "parent": self.parent.id
+        }
+
+    # Create (POST): {host}/api/children/
+    def test_child_create(self):
+        response = self.client.post('/api/children/', self.child_create_data)
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     # List (GET): {host}/api/children/
@@ -104,15 +103,11 @@ class ChildTestCase(APITestCase):
 
     # Update (PUT): {host}/api/children/{id}/
     def test_child_update(self):
-        data = {
-            "first_name": "Child-002",
-            "last_name": "Edited",
-            "parent": self.parent.id
-        }
-        response = self.client.put(reverse('children-test-detail', args=(self.parent.id,)), data)
+        response = self.client.put(reverse('children-test-detail', args=(self.parent.id,)), self.child_update_data)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     # Delete (DELETE): {host}/api/children/{id}/
     def test_child_delete(self):
         response = self.client.delete(reverse('children-test-detail', args=(self.parent.id,)))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+

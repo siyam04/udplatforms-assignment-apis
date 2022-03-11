@@ -1,9 +1,9 @@
 ## UDPlatforms Assignment APIs
 
-* Python Version 3.8.10
-* Django Version 4.0.3
+* [Python Version 3.8.10](https://www.python.org/)
+* [Django Version 4.0.3](https://www.djangoproject.com/)
 * Database: SQLite3 (default)
-* Developed by Django REST Framework (Version 3.13.1)
+* [Developed by Django REST Framework Version 3.13.1](https://www.django-rest-framework.org/)
 
 > Django follows the Model View Template (MVT) architecture. <br>
 > Model = Database, View = Controller, Template = Rendering
